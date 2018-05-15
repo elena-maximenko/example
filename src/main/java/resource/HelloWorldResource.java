@@ -13,9 +13,21 @@ public class HelloWorldResource {
     @Inject
     User user;
 
+    public HelloWorldResource() {
+    }
+
+    public HelloWorldResource(User user) {
+        this.user = new User();
+        this.user.setFirstName(user.getFirstName());
+    }
+
     @GET
     @Path("/{key}")
     public String getName(@PathParam("key") String key) {
         return user.getFirstName() + " " + key;
+    }
+
+   public String getUserFirstName(){
+        return this.user.getFirstName();
     }
 }

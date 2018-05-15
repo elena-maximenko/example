@@ -5,5 +5,3 @@ server:
   adminConnectors:
     - type: http
       port: 18189
-user:
-  firstName: Olena
