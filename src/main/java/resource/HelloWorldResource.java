@@ -1,11 +1,14 @@
 package resource;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import entity.User;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 @Path("/welcome")
 public class HelloWorldResource {
@@ -22,9 +25,11 @@ public class HelloWorldResource {
     }
 
     @GET
-    @Path("/{key}")
-    public String getName(@PathParam("key") String key) {
-        return user.getFirstName() + " " + key;
+    @Path("/name")
+    @Produces(MediaType.APPLICATION_JSON)
+    public User getName() {
+
+        return user/*.getFirstName()*/;
     }
 
    public String getUserFirstName(){
