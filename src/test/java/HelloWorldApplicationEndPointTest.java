@@ -2,6 +2,10 @@ import entity.User;
 import io.dropwizard.testing.junit.DropwizardAppRule;
 import io.dropwizard.testing.junit.ResourceTestRule;
 import javafx.collections.transformation.SortedList;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.junit.Before;
@@ -28,25 +32,34 @@ public class HelloWorldApplicationEndPointTest {
 
     @Test
     @Consumes(MediaType.APPLICATION_JSON)
-    public void returnsFirstNameFromUrl(){
+    public void returnsFirstNameFromUrl() throws Exception{
         String expected = "Olena";
         //Obtain client from @Rule.
-        Client client = ClientBuilder.newClient();
+        /*Client client = ClientBuilder.newClient();
         //Get WebTarget from client using URI of root resource.
         WebTarget helloTarget = client.target("http://localhost:8080/welcome/name");
         //To invoke response we use Invocation.Builder
         //and specify the media type of representation asked from resource.
         Invocation.Builder builder = helloTarget.request(MediaType.APPLICATION_JSON);
-        //Obtain response.
-        Response response = builder.get();
-        System.out.println("entity = " + response.getEntity());
+        //Obtain response.*/
 
-        System.out.println("responce = " + response);
+        DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
+        HttpGet httpGet = new HttpGet("http://localhost:8080/welcome/name");
+        HttpResponse httpResponse = defaultHttpClient.execute(httpGet);
+
+        String result = EntityUtils.toString(httpResponse.getEntity());
+
+        System.out.println("result = "  +result);
+
+       // Response response = builder.get();
+        //System.out.println("entity = " + EntityUtils.toString(response.));
+
+        //System.out.println("responce = " + response);
 
         //Do assertions.
-        assertEquals(Response.Status.OK, response.getStatusInfo());
-        String actual = response.readEntity(String.class);
-        assertEquals(expected, actual);
+       // //assertEquals(Response.Status.OK, response.getStatusInfo());
+       // String actual = response.readEntity(String.class);
+      //  assertEquals(expected, actual);
     }
 
 }
