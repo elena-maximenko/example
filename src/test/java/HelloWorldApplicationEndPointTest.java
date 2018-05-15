@@ -1,3 +1,4 @@
+import config.TestConfiguration;
 import entity.User;
 import io.dropwizard.testing.junit.DropwizardAppRule;
 import io.dropwizard.testing.junit.ResourceTestRule;
@@ -13,6 +14,7 @@ import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
 import resource.HelloWorldResource;
+import sun.jvm.hotspot.HelloWorld;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -25,9 +27,19 @@ import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
 
+import static io.dropwizard.testing.ResourceHelpers.resourceFilePath;
 import static org.junit.Assert.assertEquals;
 
 public class HelloWorldApplicationEndPointTest {
+
+
+    @ClassRule
+    public static final DropwizardAppRule<TestConfiguration> RULE =
+            new DropwizardAppRule(HelloWorldApplication.class, resourceFilePath("example.yml"));
+
+    /*@Rule unsatisfied dependency injection
+    public ResourceTestRule resource = ResourceTestRule.builder()
+            .addResource(new HelloWorldResource()).build();*/
 
 
     @Test
