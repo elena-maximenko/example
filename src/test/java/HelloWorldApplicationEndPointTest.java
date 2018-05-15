@@ -11,6 +11,7 @@ import org.junit.Test;
 import resource.HelloWorldResource;
 
 import javax.inject.Inject;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Invocation;
@@ -26,6 +27,7 @@ public class HelloWorldApplicationEndPointTest {
 
 
     @Test
+    @Consumes(MediaType.APPLICATION_JSON)
     public void returnsFirstNameFromUrl(){
         String expected = "Olena";
         //Obtain client from @Rule.
@@ -34,9 +36,10 @@ public class HelloWorldApplicationEndPointTest {
         WebTarget helloTarget = client.target("http://localhost:8080/welcome/name");
         //To invoke response we use Invocation.Builder
         //and specify the media type of representation asked from resource.
-        Invocation.Builder builder = helloTarget.request(MediaType.TEXT_PLAIN);
+        Invocation.Builder builder = helloTarget.request(MediaType.APPLICATION_JSON);
         //Obtain response.
         Response response = builder.get();
+        System.out.println("entity = " + response.getEntity());
 
         System.out.println("responce = " + response);
 
