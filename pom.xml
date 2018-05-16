@@ -74,7 +74,7 @@
                 <plugin>
                     <configuration>
                         <processTypes>
-                            <web>java $JAVA_OPTS -cp target/classes:target/dependency/* HelloWorldApplication</web>
+                            <web>java $JAVA_OPTS -cp target/classes:target/dependency/* HelloWorldApplication example.yml</web>
                         </processTypes>
                     </configuration>
                     <groupId>com.heroku.sdk</groupId>
