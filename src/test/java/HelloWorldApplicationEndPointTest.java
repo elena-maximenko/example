@@ -31,7 +31,10 @@ public class HelloWorldApplicationEndPointTest {
         ObjectMapper objectMapper = new ObjectMapper();
 
         DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
+
         HttpGet httpGet = new HttpGet("http://localhost:8080/welcome/name");
+
+        // get method request
         HttpResponse httpResponse = defaultHttpClient.execute(httpGet);
 
         String result = EntityUtils.toString(httpResponse.getEntity());
