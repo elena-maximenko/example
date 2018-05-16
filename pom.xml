@@ -55,6 +55,7 @@
 
     </dependencies>
 
+
     <build>
         <plugins>
             <plugin>
@@ -69,7 +70,18 @@
                     </annotationProcessors>
                 </configuration>
             </plugin>
-        </plugins>
+
+                <plugin>
+                    <configuration>
+                        <processTypes>
+                            <web>java $JAVA_OPTS -cp target/classes:target/dependency/* HelloWorldApplication</web>
+                        </processTypes>
+                    </configuration>
+                    <groupId>com.heroku.sdk</groupId>
+                    <artifactId>heroku-maven-plugin</artifactId>
+                    <version>2.0.3</version>
+                </plugin>
+            </plugins>
     </build>
 
 </project>
