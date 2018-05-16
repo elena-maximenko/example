@@ -8,11 +8,24 @@ import module.HelloWorldModule;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import resource.HelloWorldResource;
 
+import java.io.FileInputStream;
+import java.util.Properties;
+
 public class HelloWorldApplication extends Application<HelloWorldConfiguration> {
 
     private HelloWorldComponent component;
 
     public static void main(String[] args) throws Exception {
+
+        Properties properties = new Properties();
+        properties.load(new FileInputStream("config.properties"));
+
+        /*args = new String[]{"server"};
+
+        System.out.println(args[0]);
+
+        properties.setProperty("example.yml", args[0]);*/
+
         new HelloWorldApplication().run(args);
     }
 
