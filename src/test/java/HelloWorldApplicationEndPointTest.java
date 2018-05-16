@@ -30,6 +30,7 @@ public class HelloWorldApplicationEndPointTest {
 
         ObjectMapper objectMapper = new ObjectMapper();
 
+        // openin httpclient
         DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
 
         HttpGet httpGet = new HttpGet("http://localhost:8080/welcome/name");
