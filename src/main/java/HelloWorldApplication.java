@@ -1,31 +1,20 @@
-import component.DaggerHelloWorldComponent;
-import component.HelloWorldComponent;
-import config.HelloWorldConfiguration;
-import entity.User;
+package com.my;
+
+import com.my.component.DaggerHelloWorldComponent;
+import com.my.component.HelloWorldComponent;
+import com.my.config.HelloWorldConfiguration;
+import com.my.entity.User;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Environment;
-import module.HelloWorldModule;
+import com.my.module.HelloWorldModule;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
-import resource.HelloWorldResource;
-
-import java.io.FileInputStream;
-import java.util.Properties;
+import com.my.resource.HelloWorldResource;
 
 public class HelloWorldApplication extends Application<HelloWorldConfiguration> {
 
     private HelloWorldComponent component;
 
     public static void main(String[] args) throws Exception {
-
-        Properties properties = new Properties();
-        properties.load(new FileInputStream("config.properties"));
-
-        /*args = new String[]{"server"};
-
-        System.out.println(args[0]);
-
-        properties.setProperty("example.yml", args[0]);*/
-
         new HelloWorldApplication().run(args);
     }
 
