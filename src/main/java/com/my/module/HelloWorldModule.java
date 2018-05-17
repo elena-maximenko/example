@@ -1,9 +1,9 @@
-package module;
+package com.my.module;
 
-import config.HelloWorldConfiguration;
+import com.my.config.HelloWorldConfiguration;
 import dagger.Module;
 import dagger.Provides;
-import entity.User;
+import com.my.entity.User;
 
 import javax.inject.Singleton;
 

@@ -1,6 +1,6 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
-import config.TestConfiguration;
-import entity.User;
+import com.my.config.TestConfiguration;
+import com.my.entity.User;
 import io.dropwizard.testing.junit.DropwizardAppRule;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -30,7 +30,7 @@ public class HelloWorldApplicationEndPointTest {
 
         ObjectMapper objectMapper = new ObjectMapper();
 
-        // openin httpclient
+        // opening httpclient
         DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
 
         HttpGet httpGet = new HttpGet("http://localhost:8080/welcome/name");

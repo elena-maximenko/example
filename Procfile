@@ -1,0 +1,1 @@
+web    java $JAVA_OPTS -Ddw.http.port=8080 -jar path/to/dw/module/target/example-1.0-SNAPSHOT.jar server example.yml

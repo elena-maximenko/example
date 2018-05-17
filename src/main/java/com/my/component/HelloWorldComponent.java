@@ -1,8 +1,8 @@
-package component;
+package com.my.component;
 
 import dagger.Component;
-import module.HelloWorldModule;
-import resource.HelloWorldResource;
+import com.my.module.HelloWorldModule;
+import com.my.resource.HelloWorldResource;
 
 import javax.inject.Singleton;
 

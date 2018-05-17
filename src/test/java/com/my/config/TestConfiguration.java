@@ -1,7 +1,7 @@
-package config;
+package com.my.config;
 
 
-import entity.User;
+import com.my.entity.User;
 import io.dropwizard.Configuration;
 
 import javax.validation.Valid;

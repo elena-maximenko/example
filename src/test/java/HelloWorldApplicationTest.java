@@ -1,10 +1,8 @@
-import entity.User;
-import io.dropwizard.testing.junit.ResourceTestRule;
+import com.my.entity.User;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import resource.HelloWorldResource;
+import com.my.resource.HelloWorldResource;
 
 import java.util.ArrayList;
 import java.util.List;

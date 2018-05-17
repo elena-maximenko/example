@@ -1,5 +1,3 @@
-package com.my;
-
 import com.my.component.DaggerHelloWorldComponent;
 import com.my.component.HelloWorldComponent;
 import com.my.config.HelloWorldConfiguration;
